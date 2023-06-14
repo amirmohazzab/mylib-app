@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mylib-app/static/css/main.488742cb.css",
+    "main.js": "/mylib-app/static/js/main.5f677648.js",
+    "index.html": "/mylib-app/index.html",
+    "main.488742cb.css.map": "/mylib-app/static/css/main.488742cb.css.map",
+    "main.5f677648.js.map": "/mylib-app/static/js/main.5f677648.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.488742cb.css",
+    "static/js/main.5f677648.js"
+  ]
+}
