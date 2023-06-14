@@ -6,7 +6,6 @@ const Book = () => {
 
     const {books, dispatch} = useContext(Bookcontext);
     const {number} = useParams();
-    console.log(number);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -24,7 +23,6 @@ const Book = () => {
                 <p>author: {book.author}</p>
                 <p>
                     <button onClick={() => {
-                        //deleteBook(parseInt(number));
                         dispatch({type: 'DELETE_BOOK', number:parseInt(number)})
                         navigate("/books"+location.search);
                     }}>

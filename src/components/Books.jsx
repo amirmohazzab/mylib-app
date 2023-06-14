@@ -11,36 +11,38 @@ const Books = () => {
     const location = useLocation();
 
 
+    let filteredBooks = books.filter((book) => {
+        let filter = searchParams.get("filter");
+        if (!filter) return true;
+        return book.title.toLowerCase().startsWith(filter.toLowerCase());
+    });
+
     return (
-         <div style={{display: "flex"}}>
+        <div style={{display: "flex"}}>
             <nav style={{borderRight: "solid 1px", padding: "1rem", width: "18rem"}}>  
-            <Search/>
+                <Search filteredBooks={filteredBooks}/>
                     {
-                        books.filter((book) => {
-                            let filter = searchParams.get("filter");
-                            if (!filter) return true;
-                            return book.title.toLowerCase().startsWith(filter.toLowerCase());
-                        }).map((book) => (
-                                <NavLink style={({isActive}) => {
-                                    return {
-                                        display: "block",
-                                        margin: "0.5rem 0",
-                                        color: isActive ? "red" : null,
-                                        background: "#fb8500",
-                                        textDecoration: "none",
-                                        padding: "0.3rem"
-                                    }
-                                }}
-                                to={`/books/${book.number}${location.search}`} 
-                                key={book.number}
-                                >
-                                {book.title}
-                                </NavLink>                         
+                        filteredBooks.map((book) => (
+                            <NavLink style={({isActive}) => {
+                                return {
+                                    display: "block",
+                                    margin: "0.5rem 0",
+                                    color: isActive ? "red" : null,
+                                    background: "#fb8500",
+                                    textDecoration: "none",
+                                    padding: "0.3rem",
+                                }
+                            }}
+                            to={`/books/${book.number}${location.search}`} 
+                            key={book.number}
+                            >
+                            {book.title}
+                            </NavLink>                         
                         ))
                     }
-                    <BookForm/>
-                    </nav>
-          <Outlet/>
+                <BookForm />
+            </nav>
+            <Outlet/>
         </div> 
     )
 }
