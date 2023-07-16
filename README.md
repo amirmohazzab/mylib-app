@@ -1,6 +1,6 @@
 # Discription
 
-This project is for counting by Class component.
+This project is for adding books including title and author's name, see and delete each book and also search for books
 
 ## Technologies
 
@@ -8,7 +8,13 @@ This project is for counting by Class component.
 - Css
 - React 
 - React-router-dom
+- NavLink
+- useReducer
+- useContext
+- useParams
+- useSearchParams
+- outlet
 
-## Preview
+## Show
 
 <a href="https://amirmohazzab.github.io/mylib-app"> Demo </a>
